@@ -15,3 +15,15 @@ brew 'go'
 # Install GNU coreutils and have them mask the macOS versions.  See
 # https://github.com/18F/laptop/issues/36 for more info.
 # brew install coreutils --default-names
+
+# Browsers
+cask 'google-chrome'
+cask 'brave-browser'
+
+# IDE
+cask 'phpstorm'
+cask 'graphiql'
+
+# Utilities
+cask 'tower'
+cask 'sourcetree'
