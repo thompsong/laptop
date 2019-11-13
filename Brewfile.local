@@ -27,3 +27,4 @@ cask 'graphiql'
 # Utilities
 cask 'tower'
 cask 'sourcetree'
+cask 'citrix-workspace'
