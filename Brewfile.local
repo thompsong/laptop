@@ -1,9 +1,8 @@
-cask 'atom'
-cask 'firefox'
+
+
 cask 'iterm2'
 cask 'spectacle'
-cask 'sublime-text'
-cask 'visual-studio-code'
+
 
 brew 'vim'
 brew 'ctags'
@@ -19,14 +18,18 @@ brew 'go'
 # Browsers
 cask 'google-chrome'
 cask 'brave-browser'
+cask 'firefox'
+
 
 # IDE
 cask 'phpstorm'
-cask 'graphiql'
+cask 'atom'
+cask 'sublime-text'
+cask 'visual-studio-code'
+
 
 # Utilities
-cask 'tower'git status
-
+cask 'tower'
 brew 'composer'
 brew 'S3cmd'
 brew 'akamai'
@@ -35,3 +38,4 @@ cask 'citrix-workspace'
 cask 'lastpass'
 cask 'adobe-creative-cloud'
 brew 'ahoy'
+cask 'graphiql'
