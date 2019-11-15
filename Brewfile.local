@@ -25,6 +25,12 @@ cask 'phpstorm'
 cask 'graphiql'
 
 # Utilities
-cask 'tower'
+cask 'tower'git status
+
+brew 'composer'
+brew 'S3cmd'
+brew 'akamai'
 cask 'sourcetree'
 cask 'citrix-workspace'
+cask 'lastpass'
+cask 'adobe-creative-cloud'
