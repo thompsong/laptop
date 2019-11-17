@@ -2,7 +2,7 @@
 
 cask 'iterm2'
 cask 'spectacle'
-
+brew 'php72'
 
 brew 'vim'
 brew 'ctags'
@@ -29,6 +29,7 @@ cask 'visual-studio-code'
 
 
 # Utilities
+brew 'git-lfs'
 cask 'tower'
 brew 'composer'
 brew 'S3cmd'
