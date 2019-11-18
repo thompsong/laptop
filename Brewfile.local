@@ -1,4 +1,6 @@
 
+tap "homebrew/dupes"
+tap 'homebrew/cask-versions'
 
 cask 'iterm2'
 cask 'spectacle'
@@ -30,7 +32,7 @@ cask 'visual-studio-code'
 
 # Utilities
 brew 'git-lfs'
-cask 'tower'
+cask 'tower2'
 brew 'composer'
 brew 'S3cmd'
 brew 'akamai'

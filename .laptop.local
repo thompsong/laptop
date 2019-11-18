@@ -1,29 +1,5 @@
 #!/bin/sh
-append_to_file() {
-  # shellcheck disable=SC2039
-  local file="$1"
-  # shellcheck disable=SC2039
-  local text="$2"
 
-  if [ "$file" = "$HOME/.zshrc" ]; then
-    if [ -w "$HOME/.zshrc.local" ]; then
-      file="$HOME/.zshrc.local"
-    else
-      file="$HOME/.zshrc"
-    fi
-  fi
-
-  if ! grep -qs "^$text$" "$file"; then
-    printf "\n%s\n" "$text" >> "$file"
-  fi
-}
-fancy_echo() {
-  # shellcheck disable=SC2039
-  local fmt="$1"; shift
-
-  # shellcheck disable=SC2059
-  printf "\n$fmt\n" "$@"
-}
 fancy_echo "Running your customizations from ~/.laptop.local ..."
 
 # Install pygmy
@@ -45,48 +21,10 @@ append_to_file "$HOME/.zshrc" 'export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 
 akamai install purge
 
-append_to_file "$HOME/.zshrc" ' \
-function portainer
-{
-    NAME_C=portainer
-    NAME_I=$NAME_C/$NAME_C
-    NAME_V=$NAME_C #_data
-    RUN_DETACH=-d
-    RUN_PORT_H=9999
-    RUN_PORT_C=9000
-    RUN_SOCK_H=/var/run/docker.sock
-    RUN_SOCK_C=/var/run/docker.sock
-    RUN_PATH_H=$NAME_V
-    RUN_PATH_C=/data
-
-    case "$1" in
-        u|up)
-            docker    volume    create        $NAME_V             > /dev/null
-            docker    run            $RUN_DETACH            \
-                        -p    $RUN_PORT_H:$RUN_PORT_C     \
-                        -v    $RUN_SOCK_H:$RUN_SOCK_C     \
-                        -v    $RUN_PATH_H:$RUN_PATH_C     \
-                        -h    $NAME_C             \
-                        --name    $NAME_C             \
-                            $NAME_I             # needs both -h and --name -_-
-
-            echo http://localhost:$RUN_PORT_H/
-            ;;
-
-        d|down)
-            docker        rm    -f -v    $NAME_C             > /dev/null
-            docker    volume    rm    -f    $NAME_V             > /dev/null
-            ;;
-
-        *)
-            echo up or down
-            ;;
-    esac
-}
-
+append_to_file "$HOME/.zshrc" '
 function pygmy-add-all {
-    pygmy addkey /Users/grahamethompson/.ssh/id_rsa_govcms
-    pygmy addkey /Users/grahamethompson/.ssh/id_rsa_lagoon
+    pygmy addkey /Users/$(whoami)/.ssh/id_rsa_govcms
+    pygmy addkey /Users/$(whoami)/.ssh/id_rsa_lagoon
 }
 
 function ssh-add-all {
@@ -100,5 +38,11 @@ function purge {
 
 function lagoontoken {
     ssh -p 30831 lagoon@ssh-lagoon.govcms.amazee.io token | tr -d "\n" | pbcopy
-}'
+}
+'
 
+curl -o ~/.bin/govcms https://projects.govcms.gov.au/snippets/34/raw
+chmod +x ~/.bin/govcms
+
+curl -o ~/.bin/protainer https://projects.govcms.gov.au/snippets/24/raw
+chmod +x ~/.bin/protainer

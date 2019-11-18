@@ -9,6 +9,26 @@ It can be run multiple times on the same machine safely.
 It installs, upgrades, or skips packages
 based on what is already installed on the machine.
 
+TL;DR
+-----
+
+Get Grahame's customised instal scripts and packages. 
+
+```sh
+# Go to your OS X user's root directory
+cd ~
+
+# Download the sample files to your computer
+curl --remote-name https://raw.githubusercontent.com/18F/laptop/master/.laptop.local
+curl --remote-name https://raw.githubusercontent.com/18F/laptop/master/Brewfile.local
+```
+
+Install everything
+
+```sh
+bash <(curl -s https://raw.githubusercontent.com/18F/laptop/master/laptop)
+```
+
 Requirements
 ------------
 
@@ -202,6 +222,7 @@ What it sets up
 It should take less than 15 minutes to install (depends on your machine and
 internet connection).
 
+
 Customize in `~/.laptop.local` and `~/Brewfile.local`
 -----------------------------------------------------
 
@@ -219,6 +240,8 @@ cd ~
 curl --remote-name https://raw.githubusercontent.com/18F/laptop/master/.laptop.local
 curl --remote-name https://raw.githubusercontent.com/18F/laptop/master/Brewfile.local
 ```
+
+Go open `~/.latop.local` and `Brewfile.local` to customise your install packages.
 
 It lets you install the following tools and apps:
 
@@ -251,6 +274,7 @@ See the `mac` script for examples.
 
 Laptop functions such as `fancy_echo` and `gem_install_or_update` can be used
 in your `~/.laptop.local`.
+
 
 What about background services (Redis, Postgres, MySQL, etc.)?
 ----------------------------------------------------------
