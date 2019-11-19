@@ -23,8 +23,8 @@ akamai install purge
 
 append_to_file "$HOME/.zshrc" '
 function pygmy-add-all {
-    pygmy addkey /Users/$(whoami)/.ssh/id_rsa_govcms
-    pygmy addkey /Users/$(whoami)/.ssh/id_rsa_lagoon
+    find ~/.ssh -type f -exec grep -l "PRIVATE" {} \; | xargs pygmy addkey -K &> /dev/null
+    pygmy status
 }
 
 function ssh-add-all {
@@ -34,10 +34,6 @@ function ssh-add-all {
 
 function purge {
 	akamai purge invalidate $1
-}
-
-function lagoontoken {
-    ssh -p 30831 lagoon@ssh-lagoon.govcms.amazee.io token | tr -d "\n" | pbcopy
 }
 '
 
