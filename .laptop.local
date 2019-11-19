@@ -7,7 +7,7 @@ gem install pygmy
 
 # Install oh-my-zsh, a bunch of configurations for zsh that make it
 # a bunch more useful
-if [ ! -f "$HOME/.oh-my-zsh" ]; then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
@@ -25,7 +25,11 @@ akamai install purge
 
 append_to_file "$HOME/.zshrc" "
 function pygmy-add-all {
-    find ~/.ssh -type f -exec grep -l 'PRIVATE' {} \; | xargs pygmy addkey -K &> /dev/null
+    for possiblekey in ${HOME}/.ssh/id_*; do
+        if grep -q PRIVATE "$possiblekey"; then
+            pygmy addkey "$possiblekey"
+        fi
+    done
     pygmy status
 }
 
