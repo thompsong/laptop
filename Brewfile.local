@@ -1,6 +1,7 @@
 
 tap "homebrew/dupes"
 tap 'homebrew/cask-versions'
+tap 'devinci-code/tap'
 
 cask 'iterm2'
 cask 'spectacle'

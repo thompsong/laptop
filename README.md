@@ -19,14 +19,14 @@ Get Grahame's customised instal scripts and packages.
 cd ~
 
 # Download the sample files to your computer
-curl --remote-name https://raw.githubusercontent.com/18F/laptop/master/.laptop.local
-curl --remote-name https://raw.githubusercontent.com/18F/laptop/master/Brewfile.local
+curl --remote-name https://raw.githubusercontent.com/thompsong/laptop/master/.laptop.local
+curl --remote-name https://raw.githubusercontent.com/thompsong/laptop/master/Brewfile.local
 ```
 
 Install everything
 
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/18F/laptop/master/laptop)
+bash <(curl -s https://raw.githubusercontent.com/thompsong/laptop/master/laptop)
 ```
 
 Requirements
