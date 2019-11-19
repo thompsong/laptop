@@ -138,7 +138,7 @@ switch_to_latest_ruby() {
 }
 
 
-laptop_script_url="https://raw.githubusercontent.com/18F/laptop/master/laptop"
+laptop_script_url="https://raw.githubusercontent.com/thompsong/laptop/master/laptop"
 case "$SHELL" in
   */fish) :
     append_to_shell_file "alias laptop='bash (curl -s $laptop_script_url|psub)'"
@@ -391,7 +391,7 @@ bundle config --global jobs $((number_of_cores - 1))
 
 fancy_echo '...Finished Ruby installation checks.'
 
-curl -s https://raw.githubusercontent.com/18F/laptop/master/seekrets-install | sh -
+curl -s https://raw.githubusercontent.com/thompsong/laptop/master/seekrets-install | sh -
 
 if [ -f "$HOME/.laptop.local" ]; then
   # shellcheck source=/dev/null

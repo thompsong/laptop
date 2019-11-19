@@ -54,9 +54,9 @@ and once it appears, press `return` to launch it.
 In your Terminal window, copy and paste the command below, then press `return`.
 
 ```sh
-bash <(curl -s https://raw.githubusercontent.com/18F/laptop/master/laptop)
+bash <(curl -s https://raw.githubusercontent.com/thompsong/laptop/master/laptop)
 ```
-The [script](https://github.com/18F/laptop/blob/master/mac) itself is
+The [script](https://github.com/thompsong/laptop/blob/master/mac) itself is
 available in this repo for you to review if you want to see what it does
 and how it works.
 
@@ -80,7 +80,7 @@ at your convenience by typing `laptop` and hitting `return` in your Terminal.
 ### Want to install just git-seekret?
 In your terminal window, copy and paste the following line, and press `return`:
 ```sh
-curl -s https://raw.githubusercontent.com/18F/laptop/master/seekrets-install | bash -
+curl -s https://raw.githubusercontent.com/thompsong/laptop/master/seekrets-install | bash -
 ```
 Note that the script may ask you to enter your password. This is the same password that you use to log in to your computer.
 
