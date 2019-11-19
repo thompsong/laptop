@@ -1,8 +1,3 @@
-
-tap "homebrew/dupes"
-tap 'homebrew/cask-versions'
-tap 'devinci-code/tap'
-
 cask 'iterm2'
 cask 'spectacle'
 brew 'php72'
@@ -33,13 +28,13 @@ cask 'visual-studio-code'
 
 # Utilities
 brew 'git-lfs'
-cask 'tower2'
+#cask 'tower2'
 brew 'composer'
 brew 'S3cmd'
 brew 'akamai'
 cask 'sourcetree'
-cask 'citrix-workspace'
-cask 'lastpass'
+#cask 'citrix-workspace'
+#cask 'lastpass'
 cask 'adobe-creative-cloud'
 brew 'ahoy'
 cask 'graphiql'

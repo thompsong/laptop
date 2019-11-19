@@ -7,7 +7,9 @@ gem install pygmy
 
 # Install oh-my-zsh, a bunch of configurations for zsh that make it
 # a bunch more useful
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if [ ! -f "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
 
 if [ -f "$HOME/Brewfile.local" ]; then
   if brew bundle --file="$HOME/Brewfile.local"; then
@@ -21,21 +23,21 @@ append_to_file "$HOME/.zshrc" 'export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 
 akamai install purge
 
-append_to_file "$HOME/.zshrc" '
+append_to_file "$HOME/.zshrc" "
 function pygmy-add-all {
-    find ~/.ssh -type f -exec grep -l "PRIVATE" {} \; | xargs pygmy addkey -K &> /dev/null
+    find ~/.ssh -type f -exec grep -l 'PRIVATE' {} \; | xargs pygmy addkey -K &> /dev/null
     pygmy status
 }
 
 function ssh-add-all {
-    find ~/.ssh -type f -exec grep -l "PRIVATE" {} \; | xargs ssh-add -K &> /dev/null
+    find ~/.ssh -type f -exec grep -l 'PRIVATE' {} \; | xargs ssh-add -K &> /dev/null
     ssh-add -l
 }
 
 function purge {
-	akamai purge invalidate $1
+	akamai purge invalidate \$1
 }
-'
+"
 
 curl -o ~/.bin/govcms https://projects.govcms.gov.au/snippets/34/raw
 chmod +x ~/.bin/govcms
